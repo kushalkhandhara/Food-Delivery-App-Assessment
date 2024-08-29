@@ -1,0 +1,22 @@
+.resturent1{
+    background: url("../../../assets/hero/hero-1.jpg") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-top: 180px;
+    padding-bottom: 120px;
+
+}
+.resturent1 .resturent1-header{
+    text-align: center;
+    color: white;
+}
+.resturent1 .resturent1-header h1{
+    font-size: 54px;
+}
+
+@media (max-width: 900px) {
+    .resturent1 .resturent1-header h1{
+        font-size: 24px;
+    }
+    
+}

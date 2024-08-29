@@ -1,0 +1,49 @@
+.resturent2{
+    width: 100%;
+    overflow: hidden;
+}
+.resturent2 .resturent2-main .item_rating svg{
+    color: var(--yellow);
+    padding-right:5px;
+}
+.resturent2 .resturent2-main .card-title{
+    font-family: var(--oswald-font);
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+.resturent2 .resturent2-main .card-text{
+    color: var(--grey);
+    font-size: 15px;
+}
+.resturent2 .resturent2-main  .menu_price{
+    background-color: var(--bg-coffee);
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 4px;
+    color: var(--yellow);
+}
+.resturent2 .resturent2-main .menu_price h5{
+    /* color: var(--yellow); */
+    font-size: 1rem;
+}
+.resturent2 .resturent2-main .add_to_cart button{
+    background: var(--yellow);
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 4px;
+    opacity: 1;
+    transform: translateY(100px);
+    transition: all 500ms ease-in-out;
+    color: var(--bg-coffee);
+    outline: none;
+    border: none;
+}
+
+.resturent2 .resturent2-main  .card:hover .add_to_cart button{
+    transform: translateY(0px);
+    opacity: 1;
+}
+

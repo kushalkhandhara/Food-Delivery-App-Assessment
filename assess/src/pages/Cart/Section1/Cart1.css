@@ -1,0 +1,47 @@
+.cart1{
+    width: 100%;
+    overflow: hidden;
+    padding-top: 160px;
+}
+.cart1 .cart1-table{
+    width: 90%;
+    overflow: scroll;
+    padding: 20px;
+}
+.cart1 .cart1-table table td, .cart1 .cart1-table table{
+    border-spacing:14px;
+}
+
+.cart1 .cart1-table table td, .cart1 .cart1-table table th{
+    padding: 20px;
+}
+
+.food-image {
+    max-width: 100px; /* Adjust based on your design */
+    max-height: 100px; /* Adjust based on your design */
+    width: auto;
+    height: auto;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+  }
+  
+  .cartPro-img {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center; /* Center the image vertically */
+  }
+  .cart1 .proceed{
+    padding: 14px;
+    border:none;
+    outline: none;
+    background-color: var(--light-red);
+    color: white;
+    font-weight : bold;
+    border-radius: 12px;
+  }
+@media (max-width:900px) {
+   .cart1 .cart1-table{
+        width: 90%;
+        overflow: scroll;
+        padding: 30px;
+    }
+}

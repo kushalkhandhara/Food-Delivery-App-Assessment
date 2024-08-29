@@ -1,0 +1,107 @@
+header .navbar{
+    position: absolute;
+    width: 100%;
+    background-color:var(--white);
+    z-index: 1000;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+/* Sticky */
+header  .sticky{
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: var(--white) !important;
+    transition: all 15ms ease-in-out;
+    animation-name: stickyTransition;
+    animation-duration: 0.5s;
+    animation-fill-mode:both;
+    box-shadow: 0px 2px 3px rgba(96,96,96,0.1);
+}
+@keyframes stickyTransition {
+    0%{
+        opacity: 0;
+        transform: translate3d(0,-100%,0);
+    }
+    100%{
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+/* header .sticky .nav-link{
+    color: var(--light-black);
+} */
+
+
+header .logo img{
+    /* width: auto; */
+    /* max-width: inherit; */
+    max-height: 80px;
+}
+
+header .nav-link{
+    display: inline-flex;
+    justify-content: center;
+    color: var(--light-black);
+    padding: 0 1rem !important;
+    font-weight: 500;
+    font-family: var(--oswald-font);
+    text-transform: uppercase;
+    transition: all 15ms ease-in-out;
+}
+
+header .nav-link:hover{
+    color: var(--yellow);
+}
+header .cart{
+    position: relative;
+    top: -0.4375rem;
+}
+
+header .roundpoint{
+    width: 16px;
+    height: 16px;
+    background: var(--light-red);
+    border-radius: 50px;
+    color: white;
+    font-size: 11px;
+    line-height: 16px;
+    text-align: center;
+    font-style: none;
+    position: absolute;
+    top: 0.2px;
+    right: 16px;
+    font-weight: bold;
+}
+
+@media (max-width:992px){
+    header .navbar{
+        background-color: var(--white) !important;
+       
+    }
+    header .navbar-toggler{
+        border: none;
+    }
+    header .navbar-toggler:focus{
+        outline: none;
+        box-shadow: none;
+    }
+    header .navbar-toggler-icon{
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    header .nav-link{
+        margin: 9px 0px ;
+        color: var(--light-black);
+    }
+    header .roundpoint{
+ 
+        top: 0.2px;
+        right: -7px;
+        
+    }
+    
+
+}
