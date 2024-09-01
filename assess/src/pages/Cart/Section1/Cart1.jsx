@@ -1,7 +1,7 @@
 import "./Cart1.css";
 import Table from 'react-bootstrap/Table';
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart, removeFromCart } from '../../../Redux/cartSlice.js';
+import { addToCart, removeFromCart,clearCart } from '../../../Redux/cartSlice.js';
 
 export default function Cart1() {
   const dispatch = useDispatch();
@@ -29,6 +29,10 @@ export default function Cart1() {
   const calculateCartTotal = () => {
     return cartItems.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2);
   };
+
+  const handleEmptyCart = () => {
+    dispatch(clearCart());
+  }
 
   return (
     <div className="cart1 container mt-4">
@@ -82,8 +86,9 @@ export default function Cart1() {
           </tfoot>
         </Table>
       </div>
-      <div className="mt-5 ">
-        <button className="proceed"> Proceed to Checkout</button>
+      <div className="mt-5  d-flex gap-4">
+        <button className="btn btn-primary"> Proceed to Checkout</button>
+        <button onClick = {handleEmptyCart} className="proceed">Empty Cart</button>
       </div>
     </div>
   );

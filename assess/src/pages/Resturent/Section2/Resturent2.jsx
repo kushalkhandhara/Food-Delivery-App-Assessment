@@ -1,4 +1,6 @@
 import "./Resturent2.css"
+
+import { IoSearchOutline } from "react-icons/io5";
 import Image1 from "../../../assets/resturents/burger.jpg"
 import Image2 from "../../../assets/resturents/kfc.webp"
 import Image3 from "../../../assets/resturents/mcdonald.jpg"
@@ -10,6 +12,7 @@ import Card1 from "./Card/Card"
 import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
+import { useState } from "react"
 // Mock Data Cards
   const mockData1 = [
     {
@@ -132,9 +135,31 @@ import { FaRegStar } from "react-icons/fa";
     // Add more restaurant objects as needed
   ];
   
+  
 
 
-export default function Resturent2() {
+  
+  export default function Resturent2() {
+    
+  const [inputs,setInputs] = useState({})
+
+  const searchTerms = inputs.search || "";
+  const filteredResturents = mockData1.filter((resturents)=>{
+    const resturentName = searchTerms ?.toLowerCase() || "";
+    const title = resturents.title.toLowerCase();
+    console.log(resturents.title);
+    // const title = resturents.title;
+    return title.includes(resturentName);
+
+  })
+
+  const handleChange = (e)=>{
+    const name = e.target.name;
+    const value = e.target.value;
+     console.log(inputs.search);
+    setInputs(values=>({...values,[name]:value}))
+  }
+  
 
   const renderRatingIcons = (rating) => {
     const stars = [];
@@ -148,6 +173,8 @@ export default function Resturent2() {
     for (let i = 0; i < fullStars; i++) {
       stars.push(<FaStar size={20} key={`full${i}`} />);
     }
+
+
   
     // Add half star if needed
     if (hasHalfStar) {
@@ -165,10 +192,27 @@ export default function Resturent2() {
 
 
   return (
-    <div className="resturent2 mt-5">
-        <div className="container resturent2-main d-flex justify-content-center flex-wrap gap-2  ">
-        {
-          mockData1.map((cardData,index)=>(
+    <div className="resturent2 container mt-5">
+    {/* Search Input */}
+    <div className="searchinp">
+      <input type="text" name="search"  placeholder="Search Resturents Name Here ...." value={inputs.search} onChange={handleChange} />
+      <IoSearchOutline size={30} color="grey" />
+    </div>
+        <div className="container resturent2-main d-flex justify-content-center flex-wrap gap-2 mt-5 ">
+
+        { 
+        inputs.search ? filteredResturents.map((cardData,index)=>( 
+        <Card1 key={index} 
+          image={cardData.image} 
+          title={cardData.title}
+          rating = {cardData.rating}
+          para = {cardData.paragraph}
+          price = {cardData.price}
+          renderRatingIcons = {renderRatingIcons}
+          menu = {cardData.menu}
+          />))
+          :
+        mockData1.map((cardData,index)=>(
               <Card1 key={index} 
               image={cardData.image} 
               title={cardData.title}
@@ -178,8 +222,21 @@ export default function Resturent2() {
               renderRatingIcons = {renderRatingIcons}
               menu = {cardData.menu}
               />
-          )
-        )}
+        ))
+        }
+       {/* { mockData1.map((cardData,index)=>(
+              <Card1 key={index} 
+              image={cardData.image} 
+              title={cardData.title}
+              rating = {cardData.rating}
+              para = {cardData.paragraph}
+              price = {cardData.price}
+              renderRatingIcons = {renderRatingIcons}
+              menu = {cardData.menu}
+              />))} */}
+
+
+
         </div>
     </div>
   )
